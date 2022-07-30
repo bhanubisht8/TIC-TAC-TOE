@@ -1,6 +1,7 @@
 const cellElement = document.querySelectorAll(".cell");
 const player1Element = document.querySelector(".p1");
 const player2Element = document.querySelector(".p2");
+const displayWinner = document.querySelector(".resultdiv");
 
 const player1 = "O";
 const player2 = "X";
@@ -34,7 +35,10 @@ cellElement.forEach(element => {
         turnSwap();
 
         if(winnerCheck(currentPlayer)){
+            document.querySelector(".result").innerHTML = `${currentPlayer}  is the Winner`;
             console.log(currentPlayer + " is winner");
+            displayWinner.classList.remove("inactive");
+
         }
         if(checkDraw()){
             console.log("Game is Draw");

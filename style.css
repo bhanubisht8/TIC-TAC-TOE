@@ -8,8 +8,10 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: aquamarine;
+    /* background-color: white; */
 }
+
+
 
 .turnMenu{
     display: flex;
@@ -87,4 +89,52 @@ body{
 
 .bl0{
     border-left: none;
+}
+
+.resultdiv{
+    
+    z-index: 5;
+}
+
+.resultdiv{
+    content: "";
+    background: url(img/win.gif);
+    background-repeat: no-repeat;
+   
+    background-position: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    /* z-index: 1; */
+    opacity: 0.9;
+    
+}
+
+.result{
+    text-align: center;
+    position: absolute;
+    top: 30px;
+    display: block;
+    width: 100%;
+    margin: auto;
+}
+
+.btn{
+    cursor: pointer;
+    background-color: rgb(61, 173, 70);
+    color: white;
+    padding: 8px;
+    border-radius: 15px;
+    font-size: 20px;
+    position: absolute;
+    bottom: 3.5%;
+    left: 48vw;
+}
+
+
+
+.inactive{
+    display: none;
 }
