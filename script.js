@@ -5,25 +5,64 @@ const player2Element = document.querySelector(".p2");
 const player1 = "O";
 const player2 = "X";
 let toggleTurn = true;
+const winCond = [
+    [0,1,2],
+    [3,4,5],
+    [6,7,8],
+    [0,3,6],
+    [1,4,7],
+    [2,5,8],
+    [0,4,8],
+    [2,4,6]
+]
+
+
 
 cellElement.forEach(element => {
     element.addEventListener("click", function () {
         let currentPlayer = toggleTurn?player1:player2;
         element.classList.add("disabled");
         if (toggleTurn) {
-            player1Element.classList.add("activep");          
-            player2Element.classList.remove("activep");          
-        }else{
             player2Element.classList.add("activep");          
             player1Element.classList.remove("activep");          
+        }else{
+            player1Element.classList.add("activep");          
+            player2Element.classList.remove("activep");          
         }        
 
         playerInput(element, currentPlayer);
         turnSwap();
+
+        if(winnerCheck(currentPlayer)){
+            console.log(currentPlayer + " is winner");
+        }
+        if(checkDraw()){
+            console.log("Game is Draw");
+        }    
         
+
         
     })
 });
+
+function winnerCheck(COM_CL){
+    return winCond.some(condtion=>{
+        // console.log(condtion);
+        return condtion.every(inde=>{
+            // console.log(inde);
+            return cellElement[inde].classList.contains(COM_CL);
+            // console.log(cellElement[inde].classList.contains(COM_CL));
+
+        })
+    })
+}
+
+function checkDraw(){
+    return [...cellElement].every(include=>{
+        return include.classList.contains(player1) || include.classList.contains(player2);
+    })
+}
+
 
 function turnSwap() {
     toggleTurn = !toggleTurn;
@@ -31,4 +70,5 @@ function turnSwap() {
 
 function playerInput(a,b) {
     a.innerHTML=b;
+    a.classList.add(b);
 }

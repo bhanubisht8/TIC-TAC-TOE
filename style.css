@@ -62,6 +62,13 @@ body{
     background-color: rgb(117, 139, 117);
 }
 
+.X{
+    color: red;
+}
+.O{
+    color: green;
+}
+
 .disabled{
     pointer-events: none;
 }
