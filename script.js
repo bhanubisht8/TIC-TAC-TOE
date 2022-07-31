@@ -42,7 +42,9 @@ cellElement.forEach(element => {
         }else if(checkDraw()){
             // console.log("Game is Draw");
             document.querySelector(".result").innerHTML = " The Game is Draw";
-            displayWinner.classList.remove("inactives");
+            displayWinner.classList.remove("inactive");
+            displayWinner.classList.remove("resultdiv");
+            displayWinner.classList.add("resultdivdraw");
         }    
         
 
