@@ -8,16 +8,20 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* background-color: white; */
+    background-color: white
 }
 
 
 
 .turnMenu{
     display: flex;
-    border: 3px solid red;
+    /* border: 3px solid rgb(211, 176, 176); */
     border-radius: 15px;
     margin-top: 80px;
+    box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
+                inset 0 -15px 15px rgba(255, 255, 255, 0.05),
+                0 15px 15px rgba(0, 0, 0, 0.05),
+                inset 0 15px 15px rgba(0, 0, 0, 0.3);
 
 }
 
@@ -37,9 +41,10 @@ body{
 
 .activep{
     color: white;
-    background-color: blue;
+    background-color: rgb(149, 149, 190);
     font-weight: bold;
     border-radius: 15px;
+
     
 }
 
@@ -48,6 +53,11 @@ body{
     grid-template-columns: repeat(3,auto);
     margin-top: 10px;
     cursor: pointer;
+    border-radius: 15px;
+    box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
+                inset 0 -15px 15px rgba(255, 255, 255, 0.05),
+                0 15px 15px rgba(0, 0, 0, 0.05),
+                inset 0 15px 15px rgba(0, 0, 0, 0.3);
 }
 
 .cell{
@@ -114,10 +124,25 @@ body{
     align-items: center;
     
 }
-.resultdivdraw{
-   width: 50%;
+.draw{
+   
+    height: 100%;
+    width: 100%;
+    opacity: 0.9;
+    display: flex;
+    justify-content: center;
     align-items: center;
     
+}
+
+.drawResult{
+    text-align: center;
+    height: 18vh;
+    position: absolute;
+    top: 282px;
+    background: rgb(145, 145, 199);
+    font-size: 119px;
+    color: white;
 }
 
 .result{
@@ -139,6 +164,17 @@ body{
     position: absolute;
     bottom: 3.5%;
    
+}
+
+.btnDraw{
+    cursor: pointer;
+    background-color: rgb(61, 173, 70);
+    color: white;
+    padding: 8px;
+    border-radius: 15px;
+    font-size: 42px;
+    position: absolute;
+    bottom: 23.5%;
 }
 
 

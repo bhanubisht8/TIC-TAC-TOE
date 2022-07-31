@@ -2,7 +2,9 @@ const cellElement = document.querySelectorAll(".cell");
 const player1Element = document.querySelector(".p1");
 const player2Element = document.querySelector(".p2");
 const displayWinner = document.querySelector(".resultdiv");
-
+const gameDraw  = document.querySelector(".draw");
+let soundWin = new Audio('win.mp3');
+let soundP = new Audio('player.wav');
 const player1 = "O";
 const player2 = "X";
 let toggleTurn = true;
@@ -23,28 +25,32 @@ cellElement.forEach(element => {
     element.addEventListener("click", function () {
         let currentPlayer = toggleTurn?player1:player2;
         element.classList.add("disabled");
+        
         if (toggleTurn) {
+            soundP.play();
             player2Element.classList.add("activep");          
             player1Element.classList.remove("activep");          
         }else{
+            soundP.play();
             player1Element.classList.add("activep");          
             player2Element.classList.remove("activep");          
         }        
 
         playerInput(element, currentPlayer);
         turnSwap();
+        
 
         if(winnerCheck(currentPlayer)){
             document.querySelector(".result").innerHTML = currentPlayer + " is the Winner";
             // console.log(currentPlayer + " is winner");
             displayWinner.classList.remove("inactive");
+            soundWin.play();
             
         }else if(checkDraw()){
             // console.log("Game is Draw");
-            document.querySelector(".result").innerHTML = " The Game is Draw";
-            displayWinner.classList.remove("inactive");
-            displayWinner.classList.remove("resultdiv");
-            displayWinner.classList.add("resultdivdraw");
+            document.querySelector(".drawResult").innerHTML = " The Game is Draw";
+            gameDraw.classList.remove("inactive");
+
         }    
         
 
@@ -73,6 +79,7 @@ function checkDraw(){
 
 function turnSwap() {
     toggleTurn = !toggleTurn;
+    
 }
 
 function playerInput(a,b) {
