@@ -35,13 +35,14 @@ cellElement.forEach(element => {
         turnSwap();
 
         if(winnerCheck(currentPlayer)){
-            document.querySelector(".result").innerHTML = `${currentPlayer}  is the Winner`;
-            console.log(currentPlayer + " is winner");
+            document.querySelector(".result").innerHTML = currentPlayer + " is the Winner";
+            // console.log(currentPlayer + " is winner");
             displayWinner.classList.remove("inactive");
-
-        }
-        if(checkDraw()){
-            console.log("Game is Draw");
+            
+        }else if(checkDraw()){
+            // console.log("Game is Draw");
+            document.querySelector(".result").innerHTML = " The Game is Draw";
+            displayWinner.classList.remove("inactives");
         }    
         
 
@@ -75,4 +76,8 @@ function turnSwap() {
 function playerInput(a,b) {
     a.innerHTML=b;
     a.classList.add(b);
+}
+
+function restart() {
+    window.location.reload();
 }
